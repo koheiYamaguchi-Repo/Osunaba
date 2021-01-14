@@ -39,4 +39,13 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
-ios/build/XCBuildData/
+ios/build/XCBuildData/7ae99f70cf887ca07e03234ab99b4bd6-desc.xcbuild
+ios/build/XCBuildData/7ae99f70cf887ca07e03234ab99b4bd6-manifest.xcbuild
+ios/build/XCBuildData/26fb220e661195501fd9b43eac1a8d3f-desc.xcbuild
+ios/build/XCBuildData/26fb220e661195501fd9b43eac1a8d3f-manifest.xcbuild
+ios/build/XCBuildData/693cab26ffaef77f725b3ad9e33d403b-desc.xcbuild
+ios/build/XCBuildData/693cab26ffaef77f725b3ad9e33d403b-manifest.xcbuild
+ios/build/XCBuildData/build.db
+ios/build/XCBuildData/BuildDescriptionCacheIndex-f49ef537a4b83b69ed2c5513d58b9980
+ios/build/XCBuildData/c0569de57ecca0132c1f4a4892791752-desc.xcbuild
+ios/build/XCBuildData/c0569de57ecca0132c1f4a4892791752-manifest.xcbuild
