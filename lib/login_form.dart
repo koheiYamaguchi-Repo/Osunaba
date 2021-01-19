@@ -39,7 +39,8 @@ Center _buildSocialLogin(BuildContext context) {
           ),
           SignInButton(
             Buttons.Google,
-            onPressed: () {
+            onPressed: () async{
+              await _login(context);
               print('click');
             },
           ),
@@ -63,7 +64,7 @@ Center _buildSocialLogin(BuildContext context) {
 }
 
 Future<void> _login(BuildContext context) async {
-  EasyLoading.show(status: 'Loading...');
+  await EasyLoading.show(status: 'Loading...');
   if (await context.read<AuthModel>().login()) {
     Navigator.pushAndRemoveUntil(
       context,
