@@ -33,6 +33,8 @@ dependencies:
   # For example, to use Firebase Authentication and Cloud Firestore
   firebase_auth: ^0.20.0+1
   google_sign_in: "4.5.1"
+  sign_in_with_apple: "2.5.2"
+  crypto: "2.1.5"
   
   cloud_firestore: ^0.16.0
   provider: ^4.3.2+4
