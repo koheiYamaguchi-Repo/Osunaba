@@ -46,6 +46,8 @@ dependencies:
   flutter_signin_button: "1.1.0"
   flutter_easyloading: ^2.2.2
 
+  flappy_search_bar: "1.7.2"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
