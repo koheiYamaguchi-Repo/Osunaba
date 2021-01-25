@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-
-//title,date,fee,return,sellerInformation,postingPeriod,AboutProducts
+import 'package:intl/intl.dart';
+//title,startDate,endDate,fee,return,sellerInformation,postingPeriod,AboutProducts
 
 class Listing extends StatefulWidget {
   @override
@@ -31,6 +31,24 @@ class _ListingState extends State<Listing> {
                     FormBuilderValidators.required(context),
                   ]),
                   ),
+                FormBuilderDateRangePicker(
+                  name: "募集期間",
+                  firstDate: DateTime.now(),
+                  lastDate: DateTime(2030),
+                  format: DateFormat.yMMMd(),
+                  decoration: InputDecoration(
+                    labelText: 'Date Range',
+                    helperText: 'Helper text',
+                    hintText: 'Hint text',
+                  ),
+                ),
+                FormBuilderTextField(
+                  name: "fee",
+                  decoration: InputDecoration(labelText: '報酬金額'),
+                  validator: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(context),
+                  ]),
+                ),
               ],
             ),
           ),
