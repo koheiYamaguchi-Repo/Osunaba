@@ -47,6 +47,7 @@ dependencies:
   flutter_easyloading: ^2.2.2
 
   flappy_search_bar: "1.7.2"
+  flutter_form_builder: "4.2.0"
 
 dev_dependencies:
   flutter_test:
