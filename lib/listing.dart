@@ -1,18 +1,40 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import 'package:flappy_search_bar/flappy_search_bar.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-class Listing extends StatelessWidget {
+//title,date,fee,return,sellerInformation,postingPeriod,AboutProducts
+
+class Listing extends StatefulWidget {
+  @override
+  _ListingState createState() => _ListingState();
+}
+
+class _ListingState extends State<Listing> {
+  final _formKey = GlobalKey<FormBuilderState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: SearchBar(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: FormBuilder(
+            key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              children: [
+                FormBuilderTextField(
+                  name: "title",
+                  decoration: InputDecoration(labelText: 'タスク名'),
+                  validator: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(context),
+                  ]),
+                  ),
+              ],
             ),
-        ),
+          ),
+        ))
     );
   }
 }
