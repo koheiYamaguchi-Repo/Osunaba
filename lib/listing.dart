@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
-//title,startDate,endDate,fee,return,sellerInformation,postingPeriod,AboutProducts
+
+import 'fixed.dart';
+//title,startDate,endDate,fee,reward,sellerInformation,postingPeriod,AboutProducts
 
 class Listing extends StatefulWidget {
   @override
@@ -30,14 +32,15 @@ class _ListingState extends State<Listing> {
                   validator: FormBuilderValidators.compose([
                     FormBuilderValidators.required(context),
                   ]),
+                  maxLines: null,
                   ),
                 FormBuilderDateRangePicker(
-                  name: "募集期間",
+                  name: "duration",
                   firstDate: DateTime.now(),
                   lastDate: DateTime(2030),
                   format: DateFormat.yMMMd(),
                   decoration: InputDecoration(
-                    labelText: 'Date Range',
+                    labelText: '募集対象期間',
                     helperText: 'Helper text',
                     hintText: 'Hint text',
                   ),
@@ -49,6 +52,25 @@ class _ListingState extends State<Listing> {
                     FormBuilderValidators.required(context),
                   ]),
                 ),
+                FormBuilderDropdown(
+                  name: "benefits",
+                  decoration: InputDecoration(
+                    labelText: "報酬の有無"
+                  ),
+                  items: AppMessage.presense.map((val) => DropdownMenuItem(
+                    value: val,
+                    child: Text('$val'),
+                    )).toList()
+                  ),
+                   FormBuilderTextField(
+                    name: "todo",
+                    decoration: InputDecoration(labelText: '仕事内容詳細'),
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(context),
+                    ]),
+                    keyboardType: TextInputType.multiline,
+                    maxLines: null,
+                  ),
               ],
             ),
           ),
