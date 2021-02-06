@@ -22,59 +22,58 @@ class _ListingState extends State<Listing> {
         FirebaseFirestore.instance.collection('products');
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: FormBuilder(
-            key: _formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            child: Column(
-              children: [
-                FormBuilderTextField(
-                  name: "title",
-                  decoration: InputDecoration(labelText: 'タスク名'),
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(context),
-                  ]),
-                  maxLines: null,
-                  ),
-                FormBuilderDateRangePicker(
-                  name: "duration",
-                  firstDate: DateTime.now(),
-                  lastDate: DateTime(2030),
-                  format: DateFormat.yMMMd(),
-                  decoration: InputDecoration(
-                    labelText: '募集対象期間',
-                    helperText: 'Helper text',
-                    hintText: 'Hint text',
-                  ),
-                ),
-                FormBuilderTextField(
-                  name: "fee",
-                  decoration: InputDecoration(labelText: '報酬金額'),
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(context),
-                  ]),
-                ),
-                FormBuilderDropdown(
-                  name: "benefits",
-                  decoration: InputDecoration(
-                    labelText: "報酬の有無"
-                  ),
-                  items: AppMessage.presense.map((val) => DropdownMenuItem(
-                    value: val,
-                    child: Text('$val'),
-                    )).toList()
-                  ),
-                   FormBuilderTextField(
-                    name: "todo",
-                    decoration: InputDecoration(labelText: '仕事内容詳細'),
-                    validator: FormBuilderValidators.compose([
-                      FormBuilderValidators.required(context),
-                    ]),
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
-                  ),
+        body: SingleChildScrollView(
+            child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: FormBuilder(
+        key: _formKey,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        child: Column(
+          children: [
+            FormBuilderTextField(
+              name: "title",
+              decoration: InputDecoration(labelText: 'タスク名'),
+              validator: FormBuilderValidators.compose([
+                FormBuilderValidators.required(context),
+              ]),
+              maxLines: null,
+            ),
+            FormBuilderDateRangePicker(
+              name: "duration",
+              firstDate: DateTime.now(),
+              lastDate: DateTime(2030),
+              format: DateFormat.yMMMd(),
+              decoration: InputDecoration(
+                labelText: '募集対象期間',
+                helperText: 'Helper text',
+                hintText: 'Hint text',
+              ),
+            ),
+            FormBuilderTextField(
+              name: "fee",
+              decoration: InputDecoration(labelText: '出品金額'),
+              validator: FormBuilderValidators.compose([
+                FormBuilderValidators.required(context),
+              ]),
+            ),
+            FormBuilderDropdown(
+                name: "benefits",
+                decoration: InputDecoration(labelText: "特典"),
+                items: AppMessage.presense
+                    .map((val) => DropdownMenuItem(
+                          value: val,
+                          child: Text('$val'),
+                        ))
+                    .toList()),
+            FormBuilderTextField(
+              name: "detail",
+              decoration: InputDecoration(labelText: '仕事内容詳細'),
+              validator: FormBuilderValidators.compose([
+                FormBuilderValidators.required(context),
+              ]),
+              keyboardType: TextInputType.multiline,
+              maxLines: null,
+            ),
             MaterialButton(
               child: Text('submit'),
               onPressed: () async{
@@ -90,7 +89,8 @@ class _ListingState extends State<Listing> {
               },
             )
           ],
-        ))
-    );
+        ),
+      ),
+    )));
   }
 }
