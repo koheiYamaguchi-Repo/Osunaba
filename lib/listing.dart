@@ -75,9 +75,21 @@ class _ListingState extends State<Listing> {
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
                   ),
-              ],
-            ),
-          ),
+            MaterialButton(
+              child: Text('submit'),
+              onPressed: () async{
+                if (_formKey.currentState.saveAndValidate()) {
+                  await products.add({
+                    'title': _formKey.currentState.value['title'],
+                    'duration':_formKey.currentState.value['duration'],
+                    'fee':_formKey.currentState.value['fee'],
+                    'benefits':_formKey.currentState.value['benefits'],
+                    'detail':_formKey.currentState.value['detail'],
+                  });
+                }
+              },
+            )
+          ],
         ))
     );
   }
