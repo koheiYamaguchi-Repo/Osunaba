@@ -111,7 +111,7 @@ class SuccessPage extends StatelessWidget {
                 },
               child: Text("続いて出品する"),
               ),
-              // TODO ホームタブに戻るボタンの制作
+              // todo ホームタブに戻るボタンの制作
               // ElevatedButton(
               //   onPressed: () {
               //     Navigator.of(
