@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
+        darkTheme: ThemeData.dark(),
         home: _LoginCheck(),
         builder: (BuildContext context, Widget child) {
           return FlutterEasyLoading(child: child);
