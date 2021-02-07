@@ -56,15 +56,11 @@ class _ListingState extends State<Listing> {
                 FormBuilderValidators.required(context),
               ]),
             ),
-            FormBuilderDropdown(
-                name: "benefits",
-                decoration: InputDecoration(labelText: "特典"),
-                items: AppMessage.presense
-                    .map((val) => DropdownMenuItem(
-                          value: val,
-                          child: Text('$val'),
-                        ))
-                    .toList()),
+            FormBuilderSwitch(
+              name: "benefits",
+              title: Text("特典の有無"),
+              initialValue: false,
+            ),
             FormBuilderTextField(
               name: "detail",
               decoration: InputDecoration(labelText: '仕事内容詳細'),
