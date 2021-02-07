@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
 
-import 'fixed.dart';
+
 //title,startDate,endDate,fee,reward,sellerInformation,postingPeriod,AboutProducts
 
 class Listing extends StatefulWidget {
@@ -70,8 +70,8 @@ class _ListingState extends State<Listing> {
               keyboardType: TextInputType.multiline,
               maxLines: null,
             ),
-            MaterialButton(
-              child: Text('submit'),
+            ElevatedButton(
+              child: Text('出品する'),
               onPressed: () async {
                 if (_formKey.currentState.saveAndValidate()) {
                   await products.add({
@@ -83,7 +83,6 @@ class _ListingState extends State<Listing> {
                   });
                   _formKey.currentState.reset();
                 }
-                //提出成功画面に遷移する処理
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SuccessPage()));
               },
@@ -103,12 +102,29 @@ class SuccessPage extends StatelessWidget {
         title: Text("出品完了"),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text("続いて出品する"),
-        ),
+        child: IntrinsicWidth(
+          child: Column(
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                Navigator.pop(context);
+                },
+              child: Text("続いて出品する"),
+              ),
+              // TODO ホームタブに戻るボタンの制作
+              // ElevatedButton(
+              //   onPressed: () {
+              //     Navigator.of(
+              //       context,
+              //       rootNavigator: true
+              //       ).pushNamed('');
+              //   },
+              //   child: Text("一覧画面に戻る"),
+              // ),
+            ],
+          ),
+        )
+        
       ),
     );
   }
