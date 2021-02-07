@@ -85,12 +85,35 @@ class _ListingState extends State<Listing> {
                     'benefits':_formKey.currentState.value['benefits'],
                     'detail':_formKey.currentState.value['detail'],
                   });
+                  _formKey.currentState.reset();
                 }
+                //提出成功画面に遷移する処理
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SuccessPage()));
               },
             )
           ],
         ),
       ),
     )));
+  }
+}
+
+class SuccessPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("出品完了"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text("続いて出品する"),
+        ),
+      ),
+    );
   }
 }
