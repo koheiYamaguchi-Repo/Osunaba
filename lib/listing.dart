@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
 
-import 'fixed.dart';
+
 //title,startDate,endDate,fee,reward,sellerInformation,postingPeriod,AboutProducts
 
 class Listing extends StatefulWidget {
@@ -56,15 +56,11 @@ class _ListingState extends State<Listing> {
                 FormBuilderValidators.required(context),
               ]),
             ),
-            FormBuilderDropdown(
-                name: "benefits",
-                decoration: InputDecoration(labelText: "特典"),
-                items: AppMessage.presense
-                    .map((val) => DropdownMenuItem(
-                          value: val,
-                          child: Text('$val'),
-                        ))
-                    .toList()),
+            FormBuilderSwitch(
+              name: "benefits",
+              title: Text("特典の有無"),
+              initialValue: false,
+            ),
             FormBuilderTextField(
               name: "detail",
               decoration: InputDecoration(labelText: '仕事内容詳細'),
@@ -74,23 +70,62 @@ class _ListingState extends State<Listing> {
               keyboardType: TextInputType.multiline,
               maxLines: null,
             ),
-            MaterialButton(
-              child: Text('submit'),
-              onPressed: () async{
+            ElevatedButton(
+              child: Text('出品する'),
+              onPressed: () async {
                 if (_formKey.currentState.saveAndValidate()) {
                   await products.add({
                     'title': _formKey.currentState.value['title'],
-                    'duration':_formKey.currentState.value['duration'],
-                    'fee':_formKey.currentState.value['fee'],
-                    'benefits':_formKey.currentState.value['benefits'],
-                    'detail':_formKey.currentState.value['detail'],
+                    'duration': _formKey.currentState.value['duration'],
+                    'fee': _formKey.currentState.value['fee'],
+                    'benefits': _formKey.currentState.value['benefits'],
+                    'detail': _formKey.currentState.value['detail'],
                   });
+                  _formKey.currentState.reset();
                 }
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SuccessPage()));
               },
             )
           ],
         ),
       ),
     )));
+  }
+}
+
+class SuccessPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("出品完了"),
+      ),
+      body: Center(
+        child: IntrinsicWidth(
+          child: Column(
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                Navigator.pop(context);
+                },
+              child: Text("続いて出品する"),
+              ),
+              // todo ホームタブに戻るボタンの制作
+              // ElevatedButton(
+              //   onPressed: () {
+              //     Navigator.of(
+              //       context,
+              //       rootNavigator: true
+              //       ).pushNamed('');
+              //   },
+              //   child: Text("一覧画面に戻る"),
+              // ),
+            ],
+          ),
+        )
+        
+      ),
+    );
   }
 }
