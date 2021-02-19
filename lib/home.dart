@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'works.dart';
+import 'listing.dart';
+
 final GlobalKey<NavigatorState> firstTabNavKey = GlobalKey<NavigatorState>();
 
 final GlobalKey<NavigatorState> secondTabNavKey = GlobalKey<NavigatorState>();
@@ -54,12 +57,12 @@ class _HomeScreenState extends State<HomeScreen> {
           if (index == 0) {
             return CupertinoTabView(
               navigatorKey: firstTabNavKey,
-              builder: (BuildContext context) => MyFirstTab(),
+              builder: (BuildContext context) => Home(),
             );
           } else if (index == 1) {
             return CupertinoTabView(
               navigatorKey: secondTabNavKey,
-              builder: (BuildContext context) => MySecondTab(),
+              builder: (BuildContext context) => Listing(),
             );
           } else if (index == 2) {
             return CupertinoTabView(
@@ -77,24 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 //各タブのクラス
-
-class MyFirstTab extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.redAccent,
-    );
-  }
-}
-
-class MySecondTab extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.greenAccent,
-    );
-  }
-}
 
 class MyThirdTab extends StatelessWidget {
   @override
