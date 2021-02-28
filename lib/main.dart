@@ -7,7 +7,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'login_form.dart';
 import 'auth_model.dart';
-import 'home.dart';
+import 'route.dart';
 
 //import 'login.dart';
 
@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
+        darkTheme: ThemeData.dark(),
         home: _LoginCheck(),
         builder: (BuildContext context, Widget child) {
           return FlutterEasyLoading(child: child);
