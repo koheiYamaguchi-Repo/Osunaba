@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
-import 'listing.dart';
+//import 'listing.dart';
 
 final GlobalKey<NavigatorState> firstTabNavKey = GlobalKey<NavigatorState>();
 
@@ -59,12 +59,14 @@ class _HomeScreenState extends State<HomeScreen> {
               navigatorKey: firstTabNavKey,
               builder: (BuildContext context) => Home(),
             );
-          } else if (index == 1) {
-            return CupertinoTabView(
-              navigatorKey: secondTabNavKey,
-              builder: (BuildContext context) => Listing(),
-            );
-          } else if (index == 2) {
+          } 
+          // else if (index == 1) {
+          //   return CupertinoTabView(
+          //     navigatorKey: secondTabNavKey,
+          //     builder: (BuildContext context) => Listing(),
+          //   );
+          // } 
+          else if (index == 2) {
             return CupertinoTabView(
               navigatorKey: thirdTabNavKey,
               builder: (BuildContext context) => MyThirdTab(),
