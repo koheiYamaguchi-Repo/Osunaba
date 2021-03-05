@@ -1,16 +1,15 @@
-# exp_market
+# Osunaba
+## Osunabaの仕様（暫定）
 
-A new Flutter project.
+改名(2021/03/05)
+exp_market → Osunaba
 
-## Getting Started
+個人開発を通してフランクに人とつながることを目的とする。
+個人間でのチーム編成、プロジェクトのスタートが気軽にできるように。
 
-This project is a starting point for a Flutter application.
+作りたいWeb / ネイティブアプリがある人と、エンジニアとのマッチング。
 
-A few resources to get you started if this is your first Flutter project:
+作りたいものアイデアを投稿、複数人の質問を通して仕様を掘り下げていく。
+エンジニアが参加したいと思えば、すぐに参加申請が出せる。必要人数が集まり次第、進行中のプロジェクトとして一覧表示される。
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+進行中のプロジェクトへのアドバイスは、チップを払うことで可能（ベテランエンジニアを想定）
