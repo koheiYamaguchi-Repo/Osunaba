@@ -52,7 +52,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
 
-  flutter_signin_button: "1.1.0"
+  flutter_signin_button: "2.0.0-nullsafety.0"
   flutter_easyloading: ^2.2.2
 
   flappy_search_bar: "1.7.2"
