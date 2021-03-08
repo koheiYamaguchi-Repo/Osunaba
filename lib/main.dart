@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         ),
         darkTheme: ThemeData.dark(),
         home: _LoginCheck(),
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           return FlutterEasyLoading(child: child);
         },
       ),
