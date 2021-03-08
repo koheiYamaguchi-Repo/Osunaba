@@ -62,7 +62,7 @@ Center _buildSocialLogin(BuildContext context) {
   );
 }
 
-Future<void> _login(BuildContext context) async {
+Future<bool> _login(BuildContext context) async {
   bool loggedIn = false;
   await EasyLoading.show(status: 'Loading...');
   if (await context.read<AuthModel>().login()) {
