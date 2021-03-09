@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthModel extends ChangeNotifier {
-  User _user;
+  User? _user;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   //コンストラクタ
   AuthModel() {
-    final User _currentUser = _auth.currentUser;
+    final User? _currentUser = _auth.currentUser;
 
     if (_currentUser != null) {
       _user = _currentUser;
@@ -17,7 +17,7 @@ class AuthModel extends ChangeNotifier {
     }
   }
 
-  User get user => _user;
+  User? get user => _user;
   bool get loggedIn => _user != null;
 
   Future<bool> login() async {
@@ -39,11 +39,11 @@ class AuthModel extends ChangeNotifier {
   }
 
   Future<UserCredential> _signInWithGoogle() async {
-    final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAccount googleUser = (await GoogleSignIn().signIn())!;
 
     final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
-    final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+    final OAuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
