@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:provider/provider.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -13,18 +14,21 @@ import 'route.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 
+final authModelProvider = ChangeNotifierProvider(
+  (ref) => AuthModel()
+);
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => AuthModel(),
-      child: MaterialApp(
+    return Scaffold(
+      body: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -40,10 +44,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class _LoginCheck extends StatelessWidget {
+class _LoginCheck extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final bool _loggedIn = context.watch<AuthModel>().loggedIn;
+    final bool _loggedIn = useProvider(authModelProvider).loggedIn;
     return _loggedIn ? HomeScreen() : LoginForm();
   }
 }
