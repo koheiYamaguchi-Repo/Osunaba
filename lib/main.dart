@@ -14,9 +14,7 @@ import 'route.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 
-final authModelProvider = ChangeNotifierProvider(
-  (ref) => AuthModel()
-);
+final authModelProvider = ChangeNotifierProvider((ref) => AuthModel());
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,19 +25,17 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        darkTheme: ThemeData.dark(),
-        home: _LoginCheck(),
-        builder: (BuildContext context, Widget? child) {
-          return FlutterEasyLoading(child: child);
-        },
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      darkTheme: ThemeData.dark(),
+      home: _LoginCheck(),
+      builder: (BuildContext context, Widget? child) {
+        return FlutterEasyLoading(child: child);
+      },
     );
   }
 }
