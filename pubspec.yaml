@@ -54,6 +54,7 @@ dependencies:
 
   flutter_signin_button: ^2.0.0-nullsafety.0
   flutter_easyloading: ^3.0.0
+  image_picker: ^0.7.3
 
 
 dev_dependencies:
