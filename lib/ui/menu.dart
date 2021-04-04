@@ -7,7 +7,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 final _selectItemProvider = StateProvider<dynamic>((ref) => 0);
 
 class MyCustomMenu extends HookWidget {
-  List<DropdownMenuItem<int>> _items = List.empty(growable: true);
+  final List<DropdownMenuItem<int>> _items = List.empty(growable: true);
   final _selectItem = useProvider(_selectItemProvider);
 
   MyCustomMenu(itemLength) {
