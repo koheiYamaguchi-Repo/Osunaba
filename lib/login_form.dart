@@ -1,4 +1,4 @@
-import 'package:exp_market/auth_model.dart';
+import 'package:osunaba/auth_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:provider/provider.dart';
