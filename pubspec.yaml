@@ -33,8 +33,7 @@ dependencies:
   http_parser: ^4.0.0
 
   # Add the dependency for the FlutterFire plugin for Google Analytics
-  # firebase_analytics: ^7.1.0
-  # firebase_analytics_web: ^0.2.0
+  firebase_analytics: ^7.1.1
 
   # Add the dependencies for any other Firebase products you want to use in your app
   # For example, to use Firebase Authentication and Cloud Firestore
