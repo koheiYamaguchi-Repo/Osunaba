@@ -64,7 +64,7 @@ Center _buildSocialLogin(BuildContext context) {
 
 Future<bool> _login(BuildContext context) async {
   bool loggedIn = false;
-  await EasyLoading.show(status: 'Loading...');
+  await EasyLoading.show(status: '読み込み中...');
   if (await context.read<AuthModel>().login()) {
     loggedIn = true;
   }
