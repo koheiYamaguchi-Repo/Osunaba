@@ -11,6 +11,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
+import 'ui/menu.dart';
+
 //riverpod、material使って作成
 //入力項目
 //タイトル、説明、画像、募集人数,所在地,プロダクトのタイプ,いつまで完成させたいか
@@ -85,16 +87,7 @@ class MyCustomForm extends HookWidget {
               return null;
             },
           ),
-          TextFormField(
-            decoration: InputDecoration(labelText: "募集人数"),
-            onSaved: (value) => {_people = value},
-            validator: (value) {
-              if (value!.isEmpty) {
-                return '入力必須項目です';
-              }
-              return null;
-            },
-          ),
+          MyCustomMenu(10),
           TextFormField(
             decoration: InputDecoration(labelText: "所在地"),
             onSaved: (value) => {_place = value},
@@ -115,16 +108,16 @@ class MyCustomForm extends HookWidget {
               return null;
             },
           ),
-          TextFormField(
-            decoration: InputDecoration(labelText: "いつまでに完成させたいか"),
-            onSaved: (value) => {_duration = value},
-            validator: (value) {
-              if (value!.isEmpty) {
-                return '入力必須項目です';
-              }
-              return null;
-            },
-          ),
+          // TextFormField(
+          //   decoration: InputDecoration(labelText: "いつまでに完成させたいか"),
+          //   onSaved: (value) => {_duration = value},
+          //   validator: (value) {
+          //     if (value!.isEmpty) {
+          //       return '入力必須項目です';
+          //     }
+          //     return null;
+          //   },
+          // ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ElevatedButton(
