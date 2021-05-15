@@ -1,4 +1,4 @@
-import 'package:exp_market/auth_model.dart';
+import 'package:osunaba/auth_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:provider/provider.dart';
@@ -62,9 +62,9 @@ Center _buildSocialLogin(BuildContext context) {
   );
 }
 
-Future<void> _login(BuildContext context) async {
+Future<bool> _login(BuildContext context) async {
   bool loggedIn = false;
-  await EasyLoading.show(status: 'Loading...');
+  await EasyLoading.show(status: '読み込み中...');
   if (await context.read<AuthModel>().login()) {
     loggedIn = true;
   }
