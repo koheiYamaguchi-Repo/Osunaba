@@ -6,15 +6,11 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-import 'login_form.dart';
-import 'auth_model.dart';
 import 'route.dart';
 
 //import 'login.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
-
-final authModelProvider = ChangeNotifierProvider((ref) => AuthModel());
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
