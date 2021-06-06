@@ -6,13 +6,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-import 'route.dart';
+import 'package:osunaba/home.dart';
 
-//import 'login.dart';
-
-final FirebaseAuth auth = FirebaseAuth.instance;
-
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(ProviderScope(child: MyApp()));
@@ -28,7 +24,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       darkTheme: ThemeData.dark(),
-      home: _LoginCheck(),
+      home: Authentication(),
       builder: (BuildContext context, Widget? child) {
         return FlutterEasyLoading(child: child);
       },
@@ -36,14 +32,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class _LoginCheck extends HookWidget {
+class Authentication extends HookWidget {
+  final auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
-    final bool _loggedIn = useProvider(authModelProvider).loggedIn;
-    return _loggedIn ? HomeScreen() : LoginForm();
+    auth.authStateChanges().listen((User? user) {
+      if (user != null) {
+        return Home();
+      } else {
+        return Login();
+      }
+    });
   }
 }
-
-// Future<void> _logout() async {
-//   await context.read<AuthModel>().logout();
-// }
