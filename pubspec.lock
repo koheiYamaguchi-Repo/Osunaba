@@ -135,7 +135,7 @@ packages:
     source: hosted
     version: "4.2.4"
   firebase_auth_web:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: firebase_auth_web
       url: "https://pub.dartlang.org"
